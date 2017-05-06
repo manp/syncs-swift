@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Syncs_Example' do
+  pod 'Syncs', :path => '../'
+
+  target 'Syncs_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
