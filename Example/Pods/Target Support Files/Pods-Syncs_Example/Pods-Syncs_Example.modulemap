@@ -1,0 +1,6 @@
+framework module Pods_Syncs_Example {
+  umbrella header "Pods-Syncs_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - Syncs (0.1.0)
+
+DEPENDENCIES:
+  - Syncs (from `../`)
+
+EXTERNAL SOURCES:
+  Syncs:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Syncs: bdf85362066a74e3c79fde8805979219f052e314
+
+PODFILE CHECKSUM: 4f668dc78a4a9056031bf678e0ca6061fe37c0c4
+
+COCOAPODS: 1.1.1

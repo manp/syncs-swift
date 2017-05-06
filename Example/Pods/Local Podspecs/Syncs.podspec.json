@@ -1,0 +1,22 @@
+{
+  "name": "Syncs",
+  "version": "0.1.0",
+  "summary": "A short description of Syncs.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/manp/Syncs",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "manp": "mostafa.alinaghipour@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/manp/Syncs.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Syncs/Classes/**/*"
+}
