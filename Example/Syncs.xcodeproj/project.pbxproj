@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7828C9638779A28571B8816A /* Pods_Syncs_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4DDD98416A44E7CFFDC5C0 /* Pods_Syncs_Tests.framework */; };
+		BF9355E91EBE21090074AB8E /* Syncs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9355E81EBE21090074AB8E /* Syncs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +31,8 @@
 /* Begin PBXFileReference section */
 		0D189D18E6FC63741AEACC37 /* Pods-Syncs_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncs_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Syncs_Example/Pods-Syncs_Example.release.xcconfig"; sourceTree = "<group>"; };
 		33795974C5A611539422F4E3 /* Pods_Syncs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Syncs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		43E71FCA49CA04F6F7A0AD95 /* Syncs.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Syncs.podspec; path = ../Syncs.podspec; sourceTree = "<group>"; };
-		4B63556A118EF4AC5CEB56A1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		43E71FCA49CA04F6F7A0AD95 /* Syncs.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Syncs.podspec; path = ../Syncs.podspec; sourceTree = "<group>"; };
+		4B63556A118EF4AC5CEB56A1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		605A942A499E1FC6041D51E3 /* Pods-Syncs_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncs_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Syncs_Tests/Pods-Syncs_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Syncs_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncs_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,9 +44,10 @@
 		607FACE51AFB9204008FA782 /* Syncs_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Syncs_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6F475DA9F2E8859E4BAE9AAA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		6F475DA9F2E8859E4BAE9AAA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AE4DDD98416A44E7CFFDC5C0 /* Pods_Syncs_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Syncs_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B840E7654F7647227432388F /* Pods-Syncs_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncs_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Syncs_Example/Pods-Syncs_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		BF9355E81EBE21090074AB8E /* Syncs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Syncs.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Syncs-fxabqkemvayaxegaykdvfivmylmz/Build/Products/Debug-iphonesimulator/Syncs/Syncs.framework"; sourceTree = "<group>"; };
 		CF8CF893BE0DDD5A957B2B09 /* Pods-Syncs_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Syncs_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Syncs_Tests/Pods-Syncs_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF9355E91EBE21090074AB8E /* Syncs.framework in Frameworks */,
 				54FB396D871B62026A4C0B20 /* Pods_Syncs_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +75,7 @@
 		3D84F1D11D639106A0545FAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF9355E81EBE21090074AB8E /* Syncs.framework */,
 				33795974C5A611539422F4E3 /* Pods_Syncs_Example.framework */,
 				AE4DDD98416A44E7CFFDC5C0 /* Pods_Syncs_Tests.framework */,
 			);
@@ -215,6 +219,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 644H5VJJ5Q;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -321,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E30AF3B610049E73DD7FDA04 /* [CP] Check Pods Manifest.lock */ = {
@@ -336,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		ECF36CBD3DC0BCCA7C3436F7 /* [CP] Embed Pods Frameworks */ = {
@@ -496,7 +501,9 @@
 			baseConfigurationReference = B840E7654F7647227432388F /* Pods-Syncs_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 644H5VJJ5Q;
 				INFOPLIST_FILE = Syncs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -510,7 +517,9 @@
 			baseConfigurationReference = 0D189D18E6FC63741AEACC37 /* Pods-Syncs_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 644H5VJJ5Q;
 				INFOPLIST_FILE = Syncs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";

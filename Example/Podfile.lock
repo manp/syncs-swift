@@ -1,16 +1,22 @@
 PODS:
-  - Syncs (0.1.0)
+  - SwiftWebSocket (2.6.5)
+  - SwiftyJSON (3.1.4)
+  - Syncs (0.1.0):
+    - SwiftWebSocket
+    - SwiftyJSON
 
 DEPENDENCIES:
   - Syncs (from `../`)
 
 EXTERNAL SOURCES:
   Syncs:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  Syncs: bdf85362066a74e3c79fde8805979219f052e314
+  SwiftWebSocket: 1ef8a0efb023544643bdf480c1ec4a62b204f293
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Syncs: dccc838da39b84a1c2060cc7bc3ad440d6020e24
 
-PODFILE CHECKSUM: 4f668dc78a4a9056031bf678e0ca6061fe37c0c4
+PODFILE CHECKSUM: a255e063eaf8d0f19dc4924cbeb7038743863e9d
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1

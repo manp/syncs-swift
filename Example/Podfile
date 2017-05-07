@@ -5,7 +5,6 @@ target 'Syncs_Example' do
 
   target 'Syncs_Tests' do
     inherit! :search_paths
-
-    
+	
   end
 end

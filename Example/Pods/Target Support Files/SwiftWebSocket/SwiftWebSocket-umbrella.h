@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Syncs_ExampleVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Syncs_ExampleVersionString[];
+FOUNDATION_EXPORT double SwiftWebSocketVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwiftWebSocketVersionString[];
 

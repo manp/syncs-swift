@@ -7,11 +7,23 @@
 //
 
 import UIKit
-class ViewController: UIViewController {
-
+import Syncs
+import SwiftyJSON
+class ViewController: UIViewController,SyncsDelegate {
+	
+	var io:Syncs!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+		self.io=Syncs("ws://192.168.1.33:8080/syncs");
+		io.delegate=self
+		
+		
+		
+		
+		
+		
+		
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,5 +32,17 @@ class ViewController: UIViewController {
 	
     }
 
+	
+	@IBAction func sliderChange(_ sender: UISlider) {
+		_ = self.io.shared("info").set("slider1", Int(sender.value))
+	}
+	
+	@IBOutlet weak var remoteSlider: UISlider!
+	func onOpen(from syncs: Syncs) {
+		print("open")
+	}
+	func onDisconnect(from syncs: Syncs) {
+		print("close")
+	}
 }
 
