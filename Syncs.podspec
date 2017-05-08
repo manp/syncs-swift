@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Syncs'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A Real-Time web framework, swift library'
 
 # This description is used to generate tags and improve search results.
@@ -27,12 +27,12 @@ DESC
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'manp' => 'mostafa.alinaghipour@gmail.com' }
-  s.source           = { :git => 'https://github.com/manp/syncs-swift.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/manp/syncs-swift.git', :tag => "1.0.2" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Syncs/Classes/**/*'
+  s.source_files = "Syncs/Classes/**/*","Syncs/Classes/**/*.swift"
   
   # s.resource_bundles = {
   #   'Syncs' => ['Syncs/Assets/*.png']
