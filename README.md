@@ -1,6 +1,5 @@
 # syncs-swift
 
-[![CI Status](http://img.shields.io/travis/manp/Syncs.svg?style=flat)](https://travis-ci.org/manp/Syncs)
 [![Version](https://img.shields.io/cocoapods/v/Syncs.svg?style=flat)](http://cocoapods.org/pods/Syncs)
 [![License](https://img.shields.io/cocoapods/l/Syncs.svg?style=flat)](http://cocoapods.org/pods/Syncs)
 [![Platform](https://img.shields.io/cocoapods/p/Syncs.svg?style=flat)](http://cocoapods.org/pods/Syncs)
@@ -27,9 +26,6 @@ Syncs is available through [CocoaPods](http://cocoapods.org). To install it, sim
 pod "Syncs"
 ```
 then run `pod install` command
-
-### Manual Setup
-Download framework file from [here]() then add it to your project dependencies.
 
 ## Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
