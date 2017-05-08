@@ -28,7 +28,7 @@ Gloup.io works as a middleware to enables real-time, bi-directional communicatio
   s.source           = { :git => 'https://github.com/manp/syncs-swift', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'Syncs/Classes/**/*'
   
