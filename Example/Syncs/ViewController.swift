@@ -7,42 +7,39 @@
 //
 
 import UIKit
-import Syncs
-import SwiftyJSON
-class ViewController: UIViewController,SyncsDelegate {
+
+class ViewController: UIViewController {
 	
-	var io:Syncs!
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-		self.io=Syncs("ws://192.168.1.33:8080/syncs");
-		io.delegate=self
-		
-		
-		
-		
-		
-		
-		
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-	
+		
     }
 
 	
-	@IBAction func sliderChange(_ sender: UISlider) {
-		_ = self.io.shared("info").set("slider1", Int(sender.value))
+	@IBOutlet weak var address: UITextField!
+	@IBOutlet weak var startBtn: UIButton!
+	@IBAction func onAddressChange(_ sender: UITextField) {
+		startBtn.isEnabled = address.text != ""
 	}
 	
-	@IBOutlet weak var remoteSlider: UISlider!
-	func onOpen(from syncs: Syncs) {
-		print("open")
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		SyncsViewController.serverAddress=address.text!
 	}
-	func onDisconnect(from syncs: Syncs) {
-		print("close")
-	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
 

@@ -1,7 +1,7 @@
 PODS:
   - SwiftWebSocket (2.6.5)
   - SwiftyJSON (3.1.4)
-  - Syncs (0.1.0):
+  - Syncs (1.0.0):
     - SwiftWebSocket
     - SwiftyJSON
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   SwiftWebSocket: 1ef8a0efb023544643bdf480c1ec4a62b204f293
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Syncs: dccc838da39b84a1c2060cc7bc3ad440d6020e24
+  Syncs: bfefb5df2e931a69310e0256a9ace5dde6834d1a
 
 PODFILE CHECKSUM: a255e063eaf8d0f19dc4924cbeb7038743863e9d
 

@@ -10,6 +10,7 @@ import Foundation
 import SwiftWebSocket
 import SwiftyJSON
 
+/// Syncs class to create a presistent connection between swift application and Syncs server
 public class Syncs{
 	public var config:SyncsConfig
 	private var socket:WebSocket?
@@ -33,7 +34,17 @@ public class Syncs{
 
 
 
-
+	/**
+	creates new Syncs instance
+	
+	- parameters:
+		- path: syncs server address ("ws://localhost/syncs")
+		- autoConnect: automatically connect on create , default true
+		- autoReconnect: automatically reconnect on unhandled disconnect, default true
+		- reconnectDelay: time between each connection try, default 1000
+		- debug: enables debug mode, defualt true
+	
+	*/
 	public init(_ path:String, autoConnect:Bool=true , autoReconnect:Bool=true , reconnectDelay:Int=1000,debug:Bool=false){
 		config=SyncsConfig(path: path, autoConnect: autoConnect, autoReconnect: autoReconnect, reconnectDelay: reconnectDelay, debug: debug);
 		
@@ -42,7 +53,9 @@ public class Syncs{
 		}
 	}
 	
-	
+	/**
+	tries to connect to server
+	*/
 	public func connect(){
 		if online {
 			return
@@ -52,6 +65,13 @@ public class Syncs{
 		}else{
 			socket?.open(config.path)
 		}
+	}
+	
+	
+	/// disconnect from server
+	public func disconnect(){
+		self.handledClose=true;
+		self.socket?.close()
 	}
 	private func initWebSocket(){
 		do{
@@ -132,30 +152,50 @@ public class Syncs{
 			handler()
 		}
 	}
+	
+	/**
+	handle open event
+	- parameters:
+		- handler: function to call when client connects to server
+	*/
 	public func onOpen(_ handler: @escaping ()->()){
 		onOpenHandlers.append(handler)
 	}
-	
+	/**
+	handle close event
+	- parameters:
+		- handler: function to call when client close connection
+	*/
 	public func onClose(_ handler: @escaping ()->() ) {
 		onCloseHandlers.append(handler)
 	}
 	
+	/**
+	handle disconnect event
+	- parameters:
+		- handler: function to call when client disconnect from server
+	*/
 	public func onDisconnect(_ handler: @escaping ()->() ) {
 		onDisconnectHandlers.append(handler)
 	}
 	
+	/**
+	handle message event
+	- parameters:
+		- handler: function to call incoming message arives
+	*/
 	public func onMessage(_ handler:@escaping (_ data:JSON)->() ) {
 		onMessageHandlers.append(handler)
 	}
 	/**
-	* enables debug mode
+	enables debug mode
 	*/
 	public func enableDebugMode() {
 		config.debug=true
 	}
 	
 	/**
-	* disables debug mode
+	disables debug mode
 	*/
 	public func disableDebugMode() {
 		config.debug = false;
@@ -241,6 +281,15 @@ public class Syncs{
 			return false
 		}
 	}
+	
+	
+	/**
+	send  String message to server
+	- parameters:
+		- message: message string
+	- returns:
+		send result in boolean
+	*/
 	public func send(_ message: String)->Bool {
 		if(online){
 			socket?.send(message);
@@ -248,6 +297,13 @@ public class Syncs{
 		}
 		return false;
 	}
+	/**
+	send json message to server
+	- parameters:
+		- message: json object
+	- returns:
+		send result in boolean
+	*/
 	public func send(_ message: JSON)->Bool {
 		if(online){
 			socket?.send(message.rawString());
@@ -269,6 +325,14 @@ public class Syncs{
 		}
 	}
 
+	/**
+	subscribe to an event
+	- parameters:
+		- event: event name in string
+		- callback: function to call on event trigger
+	- returns:
+		String id to use for unsubscription
+	*/
 	public func subscribe(_ event:String,_ callback: @escaping (_ event:String, _ data:JSON , _ syncs:Syncs)->() )->String{
 		if subscriptions[event] == nil {
 			subscriptions[event]=[:]
@@ -277,7 +341,12 @@ public class Syncs{
 		subscriptions[event]?[id]=callback
 		return id
 	}
-
+	/**
+	unsubscribe from an event
+	- parameters:
+		- event: event name in string
+		- id: subsciption id
+	*/
 	public func unSubscribe(_ event:String,_ id:String ) {
 		if subscriptions[event] != nil {
 			subscriptions[event]?.removeValue(forKey: id)
@@ -285,6 +354,14 @@ public class Syncs{
 		
 	}
 	
+	/**
+	publish an event to server
+	- parameters:
+		- event: event name in string
+		- data: event data in JSON
+	- returns:
+		publish result in Bool
+	*/
 	public func publish(_ event:String, _ data:JSON)->Bool{
 		let command:JSON=[
 			"command":true,
@@ -343,12 +420,30 @@ public class Syncs{
 			clientSharedObjects[name]=SharedObject(name: name, initializeData: [:], server: self, type: .CLIENT)
 		}
 	}
+	
+	
+	/**
+	allow access to Client level SharedObject
+	- parameters:
+		- name: shared object name
+	- returns:
+		shared object
+	*/
 	public func shared(_ name:String)->SharedObject {
 		if clientSharedObjects[name] == nil {
 			clientSharedObjects[name]=SharedObject(name: name, initializeData: [:], server: self, type: .CLIENT)
 		}
 		return clientSharedObjects[name]!
 	}
+	
+	/**
+	allow access to Group level SharedObject
+	- parameters:
+		- group: group name
+		- name: shared object name
+	- returns:
+		shared object
+	*/
 	public func groupShared(_ group:String,_ name:String)->SharedObject{
 		if groupSharedObjects[group] == nil {
 			groupSharedObjects[group]=[:]
@@ -358,6 +453,14 @@ public class Syncs{
 		}
 		return	groupSharedObjects[group]![name]!
 	}
+	
+	/**
+	allow access to Global level SharedObject
+	- parameters:
+		- name: shared object name
+	- returns:
+		shared object
+	*/
 	public func globalShared(_ name:String)->SharedObject {
 		if globalSharedObjects[name] == nil {
 			globalSharedObjects[name]=SharedObject(name: name, initializeData: [:], server: self, type: .GLOBAL)
@@ -368,6 +471,16 @@ public class Syncs{
 	
 	
 	/********** RMI ***********/
+	
+	
+
+	/// using this method developers can register new remote function
+	///
+	/// - Parameters:
+	///   - name: name of the remote function
+	///   - function: remote function
+	///		- parameter args: list of json arguments
+	///		- parameter promise: promise to resolve if the result is not ready on call
 	public func functions(_ name:String,_ function: @escaping (_ args:[JSON],_ promise:Promise)-> Any? ){
 		self.rmiFunctions[name]=function
 	}
@@ -416,6 +529,12 @@ public class Syncs{
 	
 	
 	
+	/// aloows to call remote function
+	/// - parameter name: name of remote function
+	/// - parameter args: list of args to send to remote
+	/// - parameter then: function to call on result
+	/// - parameter result: result json
+	/// - parameter error: error string on remote
 	public func remote(_ name:String, args:Any...,_ then:@escaping (_ result:JSON, _ error:String?)->() = {result in} ){
 		let id:String = UUID().uuidString
 		rmiResultCallbacks[id]=then;
@@ -472,7 +591,7 @@ public class SharedObject{
 	private var onChangeHandler:Any?;
 	
 	
-	public init(name: String, initializeData: [String:JSON], server: Syncs,type:Type) {
+	fileprivate init(name: String, initializeData: [String:JSON], server: Syncs,type:Type) {
 		self.name = name;
 		self.type = type;
 		self.readOnly = type != .CLIENT;
@@ -483,6 +602,10 @@ public class SharedObject{
 	
 	
 	
+	/// get string value of shared object
+	///
+	/// - Parameter property: name of property
+	/// - Returns: string value or nil
 	public func getString(_ property:String)->String?{
 		do {
 			var data=try JSON(rawData[property]);
@@ -492,6 +615,10 @@ public class SharedObject{
 		}
 	}
 	
+	/// get int value of shared object
+	///
+	/// - Parameter property: name of property
+	/// - Returns: int value or nil
 	public func getInt(_ property:String)->Int?{
 		do {
 			var data=try JSON(rawData[property]);
@@ -500,6 +627,10 @@ public class SharedObject{
 			return nil
 		}
 	}
+	/// get bool value of shared object
+	///
+	/// - Parameter property: name of property
+	/// - Returns: bool value or nil
 	public func getBool(_ property:String)->Bool?{
 		do {
 			var data=try JSON(rawData[property]);
@@ -508,6 +639,11 @@ public class SharedObject{
 			return nil
 		}
 	}
+	
+	/// get JSON value of shared object
+	///
+	/// - Parameter property: name of property
+	/// - Returns: JSON value or nil
 	public func getJSON(_ property:String)->JSON?{
 		do {
 			return try JSON(rawData[property]);
@@ -516,15 +652,40 @@ public class SharedObject{
 		}
 	}
 	
+	
+	/// set value of property in shared object
+	///
+	/// - Parameters:
+	///   - property: name of property
+	///   - value: value to set
+	/// - Returns: shared object instance for chain call
 	public func set(_ property:String,_ value:String)->SharedObject{
 		return setData(property, value)
 	}
+	/// set value of property in shared object
+	///
+	/// - Parameters:
+	///   - property: name of property
+	///   - value: value to set
+	/// - Returns: shared object instance for chain call
 	public func set(_ property:String,_ value:Int)->SharedObject{
 		return setData(property, value)
 	}
+	/// set value of property in shared object
+	///
+	/// - Parameters:
+	///   - property: name of property
+	///   - value: value to set
+	/// - Returns: shared object instance for chain call
 	public func set(_ property:String,_ value:Bool)->SharedObject{
 		return setData(property, value)
 	}
+	/// set value of property in shared object
+	///
+	/// - Parameters:
+	///   - property: name of property
+	///   - value: value to set
+	/// - Returns: shared object instance for chain call
 	public func set(_ property:String,_ value:JSON)->SharedObject{
 		return setData(property, value)
 	}
@@ -568,11 +729,16 @@ public class SharedObject{
 		
 	}
 
+	/// handle changes in shared object
+	///
+	/// - Parameter handler: function to call on change
+	///		- parameter values: array of changed property
+	///		- determines who changed the shared object
 	public func onChange(_ handler:@escaping (_ values:[String:JSON], _ by: By)->() ){
 		onChangeHandler=handler
 	}
 	
-	/************ ENUMS ************/
+	
 	public enum `Type`{
 		case GLOBAL
 		case GROUP
@@ -593,7 +759,10 @@ public class Promise{
 		self.id=id
 		self.server=server
 	}
-	public func result(result:Any){
+	/// method to call when the result is ready
+	///
+	/// - Parameter result: result data (string,int,bool,JSON)
+	public func result(_ result:Any){
 		server.sendRmiResultCommand(result: result, error: nil, id: id)
 	}
 	

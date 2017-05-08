@@ -69,13 +69,13 @@
 
 /* Begin PBXFileReference section */
 		011B0E10017B72D601FC8597F39E03D3 /* Syncs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Syncs.xcconfig; sourceTree = "<group>"; };
-		06E36EBB124A37964DC222FF0BE55AB9 /* Pods_Syncs_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Syncs_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0709BAECA083E4EC272FA32FAE7A054E /* Pods_Syncs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Syncs_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1377EC16C90ACEDFEF61A351ADFC827C /* SwiftWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06E36EBB124A37964DC222FF0BE55AB9 /* Pods_Syncs_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Syncs_Tests.framework; path = "Pods-Syncs_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0709BAECA083E4EC272FA32FAE7A054E /* Pods_Syncs_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Syncs_Example.framework; path = "Pods-Syncs_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1377EC16C90ACEDFEF61A351ADFC827C /* SwiftWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftWebSocket.framework; path = SwiftWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DE7F9A029C3225C8404C6EE368AD71 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		17109330B8C05BF83965225A3D940256 /* Pods-Syncs_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Syncs_Example-resources.sh"; sourceTree = "<group>"; };
 		171B4A8EAC82986A9A914F21C9A8B27E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		186CAA3FABA8F3681B7B80E706EEC3A4 /* Pods-Syncs_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Syncs_Tests.modulemap"; sourceTree = "<group>"; };
+		186CAA3FABA8F3681B7B80E706EEC3A4 /* Pods-Syncs_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Syncs_Tests.modulemap"; sourceTree = "<group>"; };
 		2A8B0D57162942541DDC4C0177F93450 /* Pods-Syncs_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Syncs_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2FE3A31897D41A8E9434D48C4CF4D06F /* SwiftWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		312294DADA3EB94F9C68344672B8333D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,19 +89,19 @@
 		441CA02F1D6077CCB746EC1F224A07AF /* Pods-Syncs_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Syncs_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4457F4545011C6A36A76B07C57338ABC /* SwiftWebSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftWebSocket-dummy.m"; sourceTree = "<group>"; };
 		4B5F64573359DEAE65C4B1B287C85794 /* Syncs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Syncs.swift; sourceTree = "<group>"; };
-		52B8F71BA52FFD6E6BA3200C034CB7A8 /* Syncs.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Syncs.modulemap; sourceTree = "<group>"; };
+		52B8F71BA52FFD6E6BA3200C034CB7A8 /* Syncs.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Syncs.modulemap; sourceTree = "<group>"; };
 		5580E867E0AC6BB6CB11602A80CBF1C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60392B3E892351F796C80C7ADAB2F2F8 /* SwiftWebSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftWebSocket-prefix.pch"; sourceTree = "<group>"; };
 		6366C4931460223BBE00A52F5668B692 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		6685223ED21149DB2286AD3C2AD07EC9 /* Pods-Syncs_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Syncs_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6B17F76D4AF60398AE85A98658FFFB71 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		6B17F76D4AF60398AE85A98658FFFB71 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		709F1A957C1F222072D7A5974E9DE274 /* Syncs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Syncs-dummy.m"; sourceTree = "<group>"; };
 		89345B9D3BAC83212E5E4BCA04AD04A8 /* Syncs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Syncs-prefix.pch"; sourceTree = "<group>"; };
 		8A4ED7D4B54D84EF4902CB6A87101DC3 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		8D1975CFBF7F436DDBF4639D087817E9 /* Pods-Syncs_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Syncs_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8F15F72AF6A04E296E345A7D9E07197B /* SwiftWebSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftWebSocket.modulemap; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A03237574D17C3C6C7EB5811CF4F1331 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F15F72AF6A04E296E345A7D9E07197B /* SwiftWebSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftWebSocket.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A03237574D17C3C6C7EB5811CF4F1331 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41484CE018157BB88D674C4503CF38A /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		AC5C11E3A1F27E630A48F554D5C0F4F8 /* SwiftWebSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftWebSocket.xcconfig; sourceTree = "<group>"; };
 		AD63289E437175F52086E30BB17378D0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,11 +109,11 @@
 		BADB2BD2F4BF976D5902C1614533C83D /* SwiftWebSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftWebSocket-umbrella.h"; sourceTree = "<group>"; };
 		BBC0FBA9B368E42AF61D5DC49D3F11CC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC945970A89FA2911DEE501E0FC27BE6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
-		CD903197F8153EED848F82A7AA9A4711 /* Pods-Syncs_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Syncs_Example.modulemap"; sourceTree = "<group>"; };
+		CD903197F8153EED848F82A7AA9A4711 /* Pods-Syncs_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Syncs_Example.modulemap"; sourceTree = "<group>"; };
 		CFA49D34BCEC61845875EB48FA57D8A0 /* Syncs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Syncs-umbrella.h"; sourceTree = "<group>"; };
 		D29C42744875506F8435761836E38A1D /* Pods-Syncs_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Syncs_Example-umbrella.h"; sourceTree = "<group>"; };
 		D46B3570C0BBB1F8F383609F70FB6A0E /* Pods-Syncs_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Syncs_Tests-umbrella.h"; sourceTree = "<group>"; };
-		D7785BCC74970A1E60AB88579B141EF5 /* Syncs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Syncs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7785BCC74970A1E60AB88579B141EF5 /* Syncs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Syncs.framework; path = Syncs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFE5E6E8ED49E58A5C47165B5B3DBAAE /* Pods-Syncs_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Syncs_Example-dummy.m"; sourceTree = "<group>"; };
 		E19DCCEB60646D62D6AA301F61CF032D /* Pods-Syncs_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Syncs_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E280D4FF1ABD9BD176F61C400F3F4EDB /* Pods-Syncs_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Syncs_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -218,6 +218,7 @@
 			children = (
 				4B5F64573359DEAE65C4B1B287C85794 /* Syncs.swift */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -227,6 +228,7 @@
 				BC945970A89FA2911DEE501E0FC27BE6 /* SwiftyJSON.swift */,
 				3303AF266FFDA92DE12D7F2107232C76 /* Support Files */,
 			);
+			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -250,6 +252,7 @@
 				3F73FFF4DE5281AED9BE957B5F72E503 /* WebSocket.swift */,
 				001B85B4DE50918F360B56E03367D72C /* Support Files */,
 			);
+			name = SwiftWebSocket;
 			path = SwiftWebSocket;
 			sourceTree = "<group>";
 		};
@@ -335,6 +338,7 @@
 			children = (
 				1FD8BCBAF972831860DB6A77E783F1A9 /* Classes */,
 			);
+			name = Syncs;
 			path = Syncs;
 			sourceTree = "<group>";
 		};
@@ -500,14 +504,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					56C0B19BD9A8CDFE3E4664322A6E91DE = {
-						LastSwiftMigration = 0810;
-					};
-					AB202E368DD3DBA83F781D5E1176E5C3 = {
-						LastSwiftMigration = 0810;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -683,7 +679,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 441CA02F1D6077CCB746EC1F224A07AF /* Pods-Syncs_Example.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -804,7 +799,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B5470F2CA470E41B87F3753B4E87D482 /* Pods-Syncs_Tests.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -831,7 +825,6 @@
 				PRODUCT_NAME = Pods_Syncs_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -876,7 +869,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 317087082E20C2522C787F8DC3644F81 /* Pods-Syncs_Tests.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -903,8 +895,6 @@
 				PRODUCT_NAME = Pods_Syncs_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -994,7 +984,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E280D4FF1ABD9BD176F61C400F3F4EDB /* Pods-Syncs_Example.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

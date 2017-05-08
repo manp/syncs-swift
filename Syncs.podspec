@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Syncs'
-  s.version          = '0.1.0'
-  s.summary          = 'A Real-Time web frame work, swift library'
+  s.version          = '1.0.0'
+  s.summary          = 'A Real-Time web framework, swift library'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-A JavaScript Library for Real-Time Web Applications
+Gloup.io works as a middleware to enables real-time, bi-directional communication between web clients and web servers. Gloup.io provides four abstraction layer over its real-time functionality for developers.
                        DESC
 
   s.homepage         = 'https://github.com/manp/syncs-swift'
