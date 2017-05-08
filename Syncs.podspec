@@ -18,14 +18,16 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Gloup.io works as a middleware to enables real-time, bi-directional communication between web clients and web servers. Gloup.io provides four abstraction layer over its real-time functionality for developers.
-                       DESC
+Gloup.io works as a middleware to enables real-time, bi-directional communication between web clients and web servers.
+* Gloup.io provides four abstraction layer over its real-time functionality for developers.
+
+DESC
 
   s.homepage         = 'https://github.com/manp/syncs-swift'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'manp' => 'mostafa.alinaghipour@gmail.com' }
-  s.source           = { :git => 'https://github.com/manp/syncs-swift', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/manp/syncs-swift.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
