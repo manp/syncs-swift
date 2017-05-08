@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Syncs'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A Real-Time web framework, swift library'
 
 # This description is used to generate tags and improve search results.
