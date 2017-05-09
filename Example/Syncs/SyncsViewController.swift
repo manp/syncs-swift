@@ -108,7 +108,7 @@ public class SyncsViewController:UIViewController,SyncsDelegate {
 	}
 	
 	@IBAction func onTitleChange(_ sender: Any) {
-		io.publish("title-change", JSON(["group":info?.getString("group"),"title":titleInput.text]))
+		_ = io.publish("title-change", JSON(["group":info?.getString("group"),"title":titleInput.text]))
 
 	}
 	
@@ -118,7 +118,7 @@ public class SyncsViewController:UIViewController,SyncsDelegate {
 		for color in colors.keys {
 			controller.addAction(UIAlertAction(title: color, style: .default){
 				_ in
-				self.io.publish("color-change", JSON(["group":self.info?.getString("group"),"color":color]))
+				_ = self.io.publish("color-change", JSON(["group":self.info?.getString("group"),"color":color]))
 			})
 		}
 		

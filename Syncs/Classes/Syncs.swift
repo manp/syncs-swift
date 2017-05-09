@@ -29,7 +29,7 @@ public class Syncs{
 	private var groupSharedObjects: [String: [String:SharedObject] ] = [:]
 	private var clientSharedObjects: [String:SharedObject]=[:]
 	//RMIT
-	private var rmiFunctions:[String : (_ args:[JSON],_ promise:Promise)-> Any? ]=[:]
+	private var rmiFunctions:[String : (_ args:[JSON],_ promise:Promise) throws -> Any? ]=[:]
 	private var rmiResultCallbacks:[String: (_ result:JSON,_ error:String?)->() ]=[:]
 
 
@@ -74,17 +74,11 @@ public class Syncs{
 		self.socket?.close()
 	}
 	private func initWebSocket(){
-		do{
-			socket = try WebSocket(config.path)
+			socket = WebSocket(config.path)
 			socket?.event.open=onSocketConnect;
 			socket?.event.close=onSocketClose;
 			socket?.event.message=onSocketMessage;
 			socket?.event.error={_ in }
-		}catch{
-			
-		}
-		
-		
 	}
 	
 	
@@ -109,7 +103,7 @@ public class Syncs{
 	}
 	private func onSocketMessage(message:Any){
 		let parsedMessage=parseMessage(message: message as! String)
-		if(parsedMessage != nil){
+		if(parsedMessage != JSON.null){
 			if parsedMessage["command"].exists() && parsedMessage["type"].exists() {
 				handleCommand(command: parsedMessage)
 			}else{
@@ -123,7 +117,7 @@ public class Syncs{
 		if(delegate != nil){
 			delegate?.onMessage(with: message, from: self)
 		}
-		for var handler in onMessageHandlers {
+		for handler in onMessageHandlers {
 			handler(message)
 		}
 		
@@ -132,7 +126,7 @@ public class Syncs{
 		if(delegate != nil){
 			delegate?.onOpen(from: self)
 		}
-		for var handler in onOpenHandlers {
+		for  handler in onOpenHandlers {
 			handler()
 		}
 	}
@@ -140,7 +134,7 @@ public class Syncs{
 		if(delegate != nil){
 			delegate?.onClose(from: self)
 		}
-		for var handler in onCloseHandlers {
+		for  handler in onCloseHandlers {
 			handler()
 		}
 	}
@@ -148,7 +142,7 @@ public class Syncs{
 		if(delegate != nil){
 			delegate?.onDisconnect(from: self)
 		}
-		for var handler in onDisconnectHandlers {
+		for  handler in onDisconnectHandlers {
 			handler()
 		}
 	}
@@ -203,18 +197,13 @@ public class Syncs{
 	
 	private func parseMessage(message:String)->JSON{
 		let msg=message.removingPercentEncoding
-		var json:Any?
-		do {
-			return try JSON(data:msg!.data(using: .utf8)!)
-		} catch {
-			return nil
-		}
+		return JSON(data:msg!.data(using: .utf8)!)
 	}
 	
 	
 	private func handleCommand(command:JSON) {
 		if config.debug{
-			print("INPUT: ",command.rawString())
+			print("INPUT: ",command.rawString()! )
 		}
 		
 		switch command["type"].string! {
@@ -253,10 +242,10 @@ public class Syncs{
 			let command:JSON=[
 				"command":true,
 				"type":"reportSocketId",
-				"socketId":socketId
+				"socketId":socketId!
 				
 			]
-			sendCommand(command);
+			_ = sendCommand(command);
 			online = true;
 		} else {
 			let command:JSON=[
@@ -264,22 +253,17 @@ public class Syncs{
 				"type":"reportSocketId",
 				"socketId":false
 			]
-			sendCommand(command);
+			_ = sendCommand(command);
 		}
 	}
 	
 	
 	fileprivate func sendCommand(_ command: JSON)->Bool {
-		do{
 			if(config.debug){
-				print("OUT",command.rawString())
+				print("OUT",command.rawString()!)
 			}
-			let msg=command.rawString()
-			socket?.send(command.rawString())
+			socket?.send(command.rawString()!)
 			return true
-		}catch{
-			return false
-		}
 	}
 	
 	
@@ -306,7 +290,7 @@ public class Syncs{
 	*/
 	public func send(_ message: JSON)->Bool {
 		if(online){
-			socket?.send(message.rawString());
+			socket?.send(message.rawString()!);
 			return true;
 		}
 		return false;
@@ -317,7 +301,7 @@ public class Syncs{
 	private func handleEvent(_ command: JSON) {
 		if command["event"].exists() {
 			if let subs=subscriptions[command["event"].string!] {
-				for var sub in subs.values {
+				for sub in subs.values {
 						sub(command["event"].string!, command["data"], self)
 				}
 
@@ -349,7 +333,7 @@ public class Syncs{
 	*/
 	public func unSubscribe(_ event:String,_ id:String ) {
 		if subscriptions[event] != nil {
-			subscriptions[event]?.removeValue(forKey: id)
+			_ = subscriptions[event]?.removeValue(forKey: id)
 		}
 		
 	}
@@ -393,7 +377,7 @@ public class Syncs{
 	
 	private func setGlobalSharedObject(_ command:JSON){
 		let name:String=command["name"].string!
-		if var sharedObject=globalSharedObjects[name] {
+		if let sharedObject=globalSharedObjects[name] {
 			sharedObject.setProperties(values: command["values"])
 		}else{
 			globalSharedObjects[name] = SharedObject(name: name, initializeData: [:], server: self, type: .GLOBAL)
@@ -406,7 +390,7 @@ public class Syncs{
 		if groupSharedObjects[groupName] == nil {
 			groupSharedObjects[groupName]=[:]
 		}
-		if var sharedObject=groupSharedObjects[groupName]?[name] {
+		if let sharedObject=groupSharedObjects[groupName]?[name] {
 			sharedObject.setProperties(values: command["values"])
 		}else{
 			groupSharedObjects[groupName]?[name]=SharedObject(name: name, initializeData: [:], server: self, type: .GROUP)
@@ -414,7 +398,7 @@ public class Syncs{
 	}
 	private func setClientSharedObject(_ command:JSON){
 		let name:String=command["name"].string!
-		if var sharedObject=clientSharedObjects[name] {
+		if let sharedObject=clientSharedObjects[name] {
 			sharedObject.setProperties(values: command["values"])
 		}else{
 			clientSharedObjects[name]=SharedObject(name: name, initializeData: [:], server: self, type: .CLIENT)
@@ -491,7 +475,7 @@ public class Syncs{
 		let id=command["id"].string!
 		if let function=rmiFunctions[name] {
 			do{
-				var result:Any = function(command["args"].arrayValue,Promise(id,self))
+				let result:Any? = try function(command["args"].arrayValue,Promise(id,self))
 				if result is Promise {
 					
 				}else {
@@ -505,7 +489,7 @@ public class Syncs{
 		}
 	}
 	fileprivate func sendRmiResultCommand(result:Any?, error:String? , id:String) {
-		var command=JSON([
+		let command=JSON([
 				"command":true,
 				"type":"rmi-result",
 				"id":id,
@@ -513,7 +497,7 @@ public class Syncs{
 				"error":error
 			])
 		
-		sendCommand(command);
+		_ = sendCommand(command);
 	}
 	
 	private func handleRMIResultCommand(_ command:JSON){
@@ -541,7 +525,7 @@ public class Syncs{
 		sendRMICommand(name, args, id: id)
 	}
 	private func sendRMICommand(_ name:String,_ args:[Any] , id:String){
-		var command=JSON([
+		let command=JSON([
 			"command":true,
 			"type":"rmi",
 			"id":id,
@@ -549,7 +533,7 @@ public class Syncs{
 			"args":args
 			])
 		
-		sendCommand(command);
+		_ = sendCommand(command);
 	}
 }
 
@@ -607,12 +591,12 @@ public class SharedObject{
 	/// - Parameter property: name of property
 	/// - Returns: string value or nil
 	public func getString(_ property:String)->String?{
-		do {
-			var data=try JSON(rawData[property]);
-			return try data.string
-		} catch {
+		if rawData[property] == nil {
 			return nil
 		}
+		let data = JSON(rawData[property]!);
+		return  data.string
+		
 	}
 	
 	/// get int value of shared object
@@ -620,24 +604,24 @@ public class SharedObject{
 	/// - Parameter property: name of property
 	/// - Returns: int value or nil
 	public func getInt(_ property:String)->Int?{
-		do {
-			var data=try JSON(rawData[property]);
-			return try data.int
-		} catch {
+		if rawData[property] == nil {
 			return nil
 		}
+		let data = JSON(rawData[property]!);
+		return  data.int
+		
 	}
 	/// get bool value of shared object
 	///
 	/// - Parameter property: name of property
 	/// - Returns: bool value or nil
 	public func getBool(_ property:String)->Bool?{
-		do {
-			var data=try JSON(rawData[property]);
-			return try data.bool
-		} catch {
+		if rawData[property] == nil {
 			return nil
 		}
+		let data = JSON(rawData[property]!);
+		return  data.bool
+		
 	}
 	
 	/// get JSON value of shared object
@@ -645,11 +629,10 @@ public class SharedObject{
 	/// - Parameter property: name of property
 	/// - Returns: JSON value or nil
 	public func getJSON(_ property:String)->JSON?{
-		do {
-			return try JSON(rawData[property]);
-		} catch {
+		if rawData[property] == nil {
 			return nil
 		}
+		return JSON(rawData[property]!);
 	}
 	
 	
@@ -695,7 +678,7 @@ public class SharedObject{
 		}
 		rawData[key]=value
 		if onChangeHandler != nil {
-			var handler:(_ values:[String:JSON], _ by: By)->() = onChangeHandler as! ([String : JSON], SharedObject.By) -> ()
+			let handler:(_ values:[String:JSON], _ by: By)->() = onChangeHandler as! ([String : JSON], SharedObject.By) -> ()
 			handler([key:JSON(value)], .CLIENT)
 		}
 		sendSyncsCommand(key: key)
@@ -712,7 +695,7 @@ public class SharedObject{
 				"key":key,
 				"value":rawData[key]
 			])
-		server?.sendCommand(command)
+		_ = server?.sendCommand(command)
 	}
 
 	
@@ -723,7 +706,7 @@ public class SharedObject{
 			changedValues[key]=value
 		}
 		if onChangeHandler != nil {
-			var handler:(_ values:[String:JSON], _ by: By)->() = onChangeHandler as! ([String : JSON], SharedObject.By) -> ()
+			let handler:(_ values:[String:JSON], _ by: By)->() = onChangeHandler as! ([String : JSON], SharedObject.By) -> ()
 			handler(changedValues, .SERVER)
 		}
 		
