@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/Syncs.svg?style=flat)](http://cocoapods.org/pods/Syncs)
 [![License](https://img.shields.io/cocoapods/l/Syncs.svg?style=flat)](http://cocoapods.org/pods/Syncs)
 [![Platform](https://img.shields.io/cocoapods/p/Syncs.svg?style=flat)](http://cocoapods.org/pods/Syncs)
-
+[![CI Status](http://img.shields.io/travis/manp/Syncs.svg?style=flat)](https://travis-ci.org/manp/Syncs)
 __A Swift Package for Syncs Real-Time Web Applications__
 
 _syncs-swift_ is Swift framework to work with [Syncs](https://github.com/manp/syncs).
